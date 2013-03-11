@@ -1,0 +1,30 @@
+/*
+*Programa que dadas x,y,z, da como solucion los z bits que 
+*comienzan en la columna y del numero dado en x.
+*
+*Fecha: Marzo 2013
+* Autores: Judit
+*          Pablo
+*          Gabi
+*/
+#include <stdio.h>
+
+unsigned x,y,z,s1,s2,mask;
+
+main() {
+	
+	x=0x0EE;
+	y=4;
+	z=3;
+	printf("El cambio es el siguiente:\n");
+	printf("Numero\tColumna\tDesplazamiento\tRes1\tRes2\n");
+	s1=x>>(y-z+1);
+	mask=~((~0x0)<<z);
+	s1&=mask; 
+	
+	//Otra opción
+		
+	s2=(x>>(y-z+1))&(~((~0x0)<<z));
+	
+	printf("%X\t%u\t%u\t\t%X_H\t%X_H\n",x,y,z,s1,s2);
+}
