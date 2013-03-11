@@ -28,3 +28,24 @@ main() {
 	
 	printf("%X\t%u\t%u\t\t%X_H\t%X_H\n",x,y,z,s1,s2);
 }
+
+/* Demostrar que  la siguienete operacion intercambia los valores dee x e y:
+*	x^=y^=x^=y
+*
+*	x=x^(y=y^(x=(x^y)))
+*
+*    Valores iniciales:X0, y0.
+*	Primera operacion: x1=x0^y0;
+*	Segunda operacion: y1=y0^x1;
+*	Tercera operación: x2=x1^y1;
+*
+*Tabla:  |x0 | y0 | x1 | y1 | x2 |
+*	 -------------------------
+*	 | 1 |  1 |  0 |  1 |  1 |
+*	 | 0 |  0 |  0 |  0 |  0 |
+*	 | 0 |  1 |  1 |  0 |  1 |
+*	 | 1 |  0 |  1 |  1 |  0 |
+*	 -------------------------
+*
+*	Se puede observar que en al final x2=y0 e y1=x0;
+*/ 
