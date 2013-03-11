@@ -13,7 +13,7 @@ unsigned x,y,z,s1,s2,mask;
 
 main() {
 	
-	x=0x0EE;
+	x=0x0EE; //implementar pedida por pantalla
 	y=4;
 	z=3;
 	printf("El cambio es el siguiente:\n");
