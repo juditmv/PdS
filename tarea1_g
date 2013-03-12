@@ -1,0 +1,18 @@
+#include<stdio.h>
+
+main(){
+  unsigned y,z,x,r=0;
+	printf("Indique los valores de:\n");
+	printf("y = "); scanf("%u",&y);
+	printf("z = "); scanf("%u",&z);
+	printf("x = "); scanf("%u",&x); /* por si elcompilador inicializa a cero */
+	if(y<(sizeof(unsigned)*8)&&(y+2-z)&&z){  /*	y+1-z>=0 <=> y+2-z>0 : Esto es para que la pregunta tenga sentido*/
+		while(z){   /*Ponemos unos a la variable r*/
+			r=z--,r*2+1;
+		}
+		r=r<<(y+1-z);
+		r=x&r;    /*Máscara */
+		r=r>>(y+1-z); /* Recoloco */
+	}
+	printf("r toma el valor %d %d",r,x);
+}
