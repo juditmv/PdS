@@ -3,9 +3,9 @@
 *comienzan en la columna y del numero dado en x.
 *
 * Fecha: Marzo 2013
-* Autores: Judit
+* Autores: Judit Martínez Villadangos   07291
 *          Pablo Ortega San Miguel      06318
-*          Gabriel Faleiro Rodriguez    
+*          Gabriel Faleiro Rodriguez    10124
 */
 
 #include <stdio.h>
