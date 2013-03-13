@@ -1,0 +1,49 @@
+/*
+*Programa que dadas x,y,z, da como solucion los z bits que 
+*comienzan en la columna y del numero dado en x.
+*
+* Fecha: Marzo 2013
+* Autores: Judit
+*          Pablo
+*          Gabriel 
+*/
+
+#include <stdio.h>
+
+unsigned x,y,z,r;
+
+main() {
+
+  printf("Indique los valores de:\n");
+  	printf("x = "); scanf("%u",&x);
+ 	printf("y = "); scanf("%u",&y);
+ 	printf("z = "); scanf("%u",&z);
+	if(y<(sizeof(unsigned)*8)&&(y+2-z)&&z){ // y+1-z>=0 <=> y+2-z>0 : Para que la pregunta tenga sentido
+		r=(x>>(y-z+1))&(~((~0)<<z));
+		printf("Con estos numeros, r toma el valor: %d\n",r);
+	}
+	else {
+		printf("Con los numeros dados no se puede hacer esta operacion\n");
+	}
+}
+
+/* Demostrar que  la siguiente operacion intercambia los valores de x e y:
+*	x^=y^=x^=y
+*
+*	x=x^(y=y^(x=(x^y)))
+*
+*   Valores iniciales:X0, y0.
+*	Primera operacion: x1=x0^y0;
+*	Segunda operacion: y1=y0^x1;
+*	Tercera operación: x2=x1^y1;
+*
+* Tabla:  |x0 | y0 | x1 | y1 | x2 |
+*		  -------------------------
+*		  | 1 |  1 |  0 |  1 |  1 |
+*		  | 0 |  0 |  0 |  0 |  0 |
+*		  | 0 |  1 |  1 |  0 |  1 |
+*		  | 1 |  0 |  1 |  1 |  0 |
+*		  -------------------------
+*
+*	Se puede observar que al final x2=y0 e y1=x0;
+*/ 
