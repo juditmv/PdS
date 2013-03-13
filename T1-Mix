@@ -20,7 +20,7 @@ main() {
  	printf("z = "); scanf("%u",&z);
 	if(y<(sizeof(unsigned)*8)&&(y+2-z)&&z){ // y+1-z>=0 <=> y+2-z>0 : Para que la pregunta tenga sentido
 		r=(x>>(y-z+1))&(~((~0)<<z));
-		printf("Con estos numeros, r toma el valor: %d\n",r);
+		printf("Con estos numeros, r toma el valor: %x\n",r);
 	}
 	else {
 		printf("Con los numeros dados no se puede hacer esta operacion\n");
@@ -37,7 +37,7 @@ main() {
 *	Segunda operacion: y1=y0^x1;
 *	Tercera operación: x2=x1^y1;
 *
-* Tabla:  |x0 | y0 | x1 | y1 | x2 |
+* Tabla:          |x0 | y0 | x1 | y1 | x2 |
 *		  -------------------------
 *		  | 1 |  1 |  0 |  1 |  1 |
 *		  | 0 |  0 |  0 |  0 |  0 |
