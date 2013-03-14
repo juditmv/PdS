@@ -1,0 +1,32 @@
+//         TAREA 2.   Autor: @pablosmig || Fecha: 14/03/2013 || rev0.0 
+// 
+// Muestra por pantalla en hexadecimal un numero entero positivo introducido.
+// Observaciones: Compilar segun C99 (~$ gcc -std=c99)
+
+
+#include <stdio.h>
+#define TOMAENT(x,mask) ((x & mask) >> (8*sizeof(int)-4*n)) // Toma el valor entero de los bits marcados en x por mask. 
+
+unsigned int x = 0, n = 0, mask = 0;
+
+void main(){
+   printf(" x = "); scanf("%d",&x);                       // (?)  No me deja hacer: mask=~((~0)>>4))
+   mask = ~0; mask>>=4; mask=~mask;                       // mask = 11110000...0000 
+   n = 1;                                                 // Para que el primer desplazamiento sean los bits correctos
+   printf(" ");
+   for(int i = 2*sizeof(int);i>0 ; i--){                  // (?) ANSIc89 no permite es def. de i en FOR.      
+         switch(TOMAENT(x,mask)){
+            case  0 :            ; break;                 // En cada paso del barrido (n++) el resultado de "x & mask" hay que recorrerlo
+            case 10 : printf("A"); break;                 // cuatro bits menos (-4*n) a la izquierda respecto al caso anterior. 
+            case 11 : printf("B"); break;
+	          case 12 : printf("C"); break;
+	          case 13 : printf("D"); break;
+	          case 14 : printf("E"); break;
+	          case 15 : printf("F"); break;
+            default : printf("%d", TOMAENT(x,mask));
+          }
+      mask>>=4;
+      n++;
+    }
+   printf("\n");
+}
