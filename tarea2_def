@@ -1,0 +1,34 @@
+//         TAREA 2.  || Fecha: 14/03/2013 || rev0.0 
+//                   || Autores: @judixu    Judith Martinez Villadangos  07291
+//                               @gabrif    Gabriel Faleiro Rodriguez    10124   
+//                               @pablosmig Pablo Ortega san Miguel      06318
+// Muestra por pantalla en hexadecimal un numero entero positivo introducido.
+
+
+#include <stdio.h>
+#define TOMAENT(x,mask) ((x & mask) >> (8*sizeof(int)-4*n)) // Toma el valor entero de los bits marcados en x por mask. 
+
+unsigned int x = 0, n = 0, mask = 0;
+
+void main(){
+   printf(" x = "); scanf("%d",&x);
+   mask = ~0;
+   mask=~(mask>>4);                                       // mask = 11110000...0000
+   printf(" mask = %x \n",mask);
+   printf(" ");                                               
+   n=1;
+   while (mask){
+         switch(TOMAENT(x,mask)){                         // En cada paso del barrido (n++) el resultado de "x & mask" hay que recorrerlo
+            case 10 : printf("A"); break;                 // cuatro bits menos (-4*n) a la izquierda respecto al caso anterior. 
+      case 11 : printf("B"); break;
+	    case 12 : printf("C"); break;
+	    case 13 : printf("D"); break;
+	    case 14 : printf("E"); break;
+	    case 15 : printf("F"); break;
+            default : printf("%d", TOMAENT(x,mask));
+          }
+      mask>>=4;
+      n++;
+    }
+   printf("\n");
+}
