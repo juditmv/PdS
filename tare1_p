@@ -1,0 +1,50 @@
+#include<stdio.h>
+unsigned int x, z=0, y=0;                                               //en x puede haber cualquier cosa. No esta inicializada
+int i=0;                                                                //al parecer siempre coge la misma direccion de memoria
+
+void muestrabin(unsigned int q){
+  int i = 8*sizeof(unsigned int);
+	char v[i-1];
+	for (i=0;i<8*sizeof(unsigned int);i++)  {                           //MUY POCO EFICIENTE!!!
+		v[i] = q & 1;                                                   //lo guardaria al reves
+		q=q>>1;                                                          //no me deja poner q=>>1?
+	}
+	for (i=8*sizeof(unsigned int)-1; i+1>0; i--) {
+		printf("%d", v[i]);                                             //el ultimo es el primero en salir
+	}
+	printf("_bin\n");
+}
+
+void main (){
+	
+	printf("Tamano tipo int: %d bytes.\n", sizeof(int));
+	printf("Tamano direccion: %d bytes.\t", sizeof(&x));
+ 	printf("Direccion de memoria:  %x\n",&x);                           // &x tipo int* ??
+ 	printf("Inicializa x. x = ");
+ 	scanf("%u",&x);
+ 	printf("Contenido: %x_hex || ",x);
+ 	muestrabin(x);
+ 	printf("\n");
+	printf("Introducir posicion del bit en cabeza (Posicion 1 es 0).\n");
+	printf(" y = ");
+	scanf("%d",&y);
+	printf("Introducir tamaño de secuencia de bits.\n");
+	printf(" z = ");
+	scanf("%u",&z);
+	i=z;
+	int mask=0;
+	while (i--){
+		 mask=mask<<1;                                                  //suma un bit y desplaza otro bit. 
+		 mask = 1 | mask;                                               //Que primero? Quedarian z '1' a derecha.
+	 }
+	i=y-z+1;              
+	while (i--) {                                                       //desplaza los bits necesarios hasta alinearse
+		mask=mask<<1;                                           
+     }
+	mask = mask & x;                                                    //captura los bits del dato
+	i=y-z+1;
+	while(i--) mask=mask>>1;                                            //desplaza a derecha los datos de interes
+	printf("Resultado: %x_hex || ",mask);    
+	muestrabin(mask);
+	printf("\n");
+}
