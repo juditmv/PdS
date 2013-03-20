@@ -19,12 +19,12 @@ void main(){
    n=1;
    while (mask){
          switch(TOMAENT(x,mask)){                         // En cada paso del barrido (n++) el resultado de "x & mask" hay que recorrerlo
-            case 10 : printf("A"); break;                 // cuatro bits menos (-4*n) a la izquierda respecto al caso anterior. 
-      case 11 : printf("B"); break;
-	    case 12 : printf("C"); break;
-	    case 13 : printf("D"); break;
-	    case 14 : printf("E"); break;
-	    case 15 : printf("F"); break;
+            case 10 :                                     // cuatro bits menos (-4*n) a la izquierda respecto al caso anterior. 
+     	    case 11 : 
+	    case 12 : 
+	    case 13 :
+	    case 14 :
+	    case 15 : printf("%c",('A'+TOMAENT(x,mask)-10)); break;
             default : printf("%d", TOMAENT(x,mask));
           }
       mask>>=4;
